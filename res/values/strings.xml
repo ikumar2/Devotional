@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Devotional</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Title">HANUMANBAJRANGBALI</string>
+    <string name="edit_message">Enter email for register</string>
+    <string name="enter_email_and_submit">Submit</string>
+ 
+    <string name="BAJRANGBALI">BAJRANGBALI</string>
+    <string name="PANCHMUKHI">PANCHMUKHI</string>
+    <string name="homebajrangbali03">homebajrangbali03</string>
+    <string name="RAM_SIMRAN">RAM_SIMRAN</string>
+    <string name="RAM_DHAAN">RAM_DHAAN</string>
+    <string name="Image_C">Image_C</string>
+    <string name="M_C">Music_C</string>
+
+</resources>

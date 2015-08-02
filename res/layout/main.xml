@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    
+    
+    <!--  Inside or Flipper section content -->
+    <ViewFlipper
+        android:id="@+id/view_flipper"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <!-- Hanuman Home image -->
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/homebajrangbali01" />
+            <!-- Hanuman Home Text -->
+
+            <TextView
+                android:id="@+id/textView1"
+                style="@style/ImageTitle"
+                android:text="@string/BAJRANGBALI" />
+
+         
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/homebajrangbali02" />
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/PANCHMUKHI" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/homebajrangbali06" />
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/RAM_SIMRAN" />
+        </RelativeLayout>
+        
+          <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/homebajrangbali07" />
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/RAM_DHAAN" />
+        </RelativeLayout>
+   
+    </ViewFlipper>
+    
+       <!--  Image Moving Control Button -->
+
+         <LinearLayout
+             style="@style/ButtonContainer"
+             android:layout_alignParentBottom="true"
+             android:gravity="center|bottom" 
+             android:background="@android:color/transparent" >
+         
+                <Button
+                    android:id="@+id/play"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:background="@android:drawable/ic_media_play" />
+                    
+                <Button
+                    android:id="@+id/stop"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="165dp"
+                    android:background="@android:drawable/ic_media_pause"/>
+                    
+                
+                <Button
+                    android:id="@+id/play1"
+                    android:layout_width="40dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/play1" />
+                    
+                <Button
+                    android:id="@+id/pause1"
+                    android:layout_width="42dp"
+                    android:layout_height="27dp"
+                    android:background="@drawable/pause1" />
+      
+            </LinearLayout>
+   
+        
+<!-- 
+    <ImageView
+        android:id="@+id/swipe_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+         android:layout_centerVertical="true"
+       
+        android:src="@drawable/swipe_left" />
+
+    <ImageView
+        android:id="@+id/swipe_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/swipe_right" />
+    
+       -->
+     
+     
+</RelativeLayout>
