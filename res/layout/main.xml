@@ -96,10 +96,21 @@
              android:layout_alignParentBottom="true"
              android:gravity="center|bottom" 
              android:background="@android:color/transparent" >
+
+             <Button
+                 android:id="@+id/flwButton"
+                 style="?android:attr/buttonStyleSmall"
+                 android:layout_width="28dp"
+                 android:layout_height="30dp"
+                 android:layout_marginLeft="1dp"
+                 android:layout_marginRight="1dp"
+                 android:background="@drawable/btnflower"
+                 android:minHeight="28dp"
+                 android:minWidth="28dp" />
          
                 <Button
                     android:id="@+id/play"
-                    android:layout_width="40dp"
+                    android:layout_width="25dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="1dp"
                     android:layout_marginRight="1dp"
@@ -107,27 +118,59 @@
                     
                 <Button
                     android:id="@+id/stop"
-                    android:layout_width="40dp"
+                    android:layout_width="22dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="2dp"
                     android:layout_marginRight="165dp"
-                    android:background="@android:drawable/ic_media_pause"/>
-                    
+                    android:background="@android:drawable/ic_media_pause" />
                 
                 <Button
                     android:id="@+id/play1"
-                    android:layout_width="40dp"
+                    android:layout_width="34dp"
                     android:layout_height="27dp"
                     android:background="@drawable/play1" />
                     
                 <Button
                     android:id="@+id/pause1"
-                    android:layout_width="42dp"
+                    android:layout_width="match_parent"
                     android:layout_height="27dp"
                     android:background="@drawable/pause1" />
       
             </LinearLayout>
    
+         
+         <LinearLayout
+             style="@style/ButtonContainer"
+             android:layout_alignParentBottom="true"
+             android:gravity="center|top" 
+             android:background="@android:color/transparent" >
+         
+                <ImageView
+                    android:id="@+id/flower1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_flower" />
+                    
+                <ImageView
+                    android:id="@+id/flower2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_flower" />
+                
+                <ImageView
+                    android:id="@+id/flower3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_flower" />
+                    
+               <ImageView
+                    android:id="@+id/flower4"
+                    android:layout_width="wrap_content"
+        			android:layout_height="wrap_content"
+                    android:src="@drawable/ic_flower" />
+      
+            </LinearLayout>
+         
         
 <!-- 
     <ImageView

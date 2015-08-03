@@ -33,10 +33,12 @@ import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener {
 
 	private static final int SWIPE_MIN_DISTANCE = 120;
 	private static final int SWIPE_THRESHOLD_VELOCITY = 200;
@@ -45,6 +47,16 @@ public class MainActivity extends Activity {
 	private Context mContext;
 	private MediaPlayer player;
     private ImageButton	btplay;
+    
+    // Flowers Animation variable initialization - VT
+    
+    private ImageView flowerImage1;
+	private ImageView flowerImage2;
+	private ImageView flowerImage3;
+	private ImageView flowerImage4;
+	private Animation flowerAnimation;
+	private Animation flowerAnimation1;
+	private Button flowerButton;
 	
 	@SuppressWarnings("deprecation")
 	private final GestureDetector detector = new GestureDetector(new SwipeGestureDetector());
@@ -147,6 +159,27 @@ public class MainActivity extends Activity {
 				//TODO animation stopped event
 			}
 		};
+		
+		
+		// Initialize rose flower petal or leaf image - VT
+				flowerButton = (Button) findViewById(R.id.flwButton);
+				flowerImage1 = (ImageView) findViewById(R.id.flower1);
+				flowerImage3 = (ImageView) findViewById(R.id.flower3);
+				flowerAnimation = AnimationUtils.loadAnimation(this, R.anim.flower);
+				
+				flowerImage2 = (ImageView) findViewById(R.id.flower2);
+				flowerImage4 = (ImageView) findViewById(R.id.flower4);
+				flowerAnimation1 = AnimationUtils.loadAnimation(this, R.anim.flower1);
+				
+				// Initial call make image invisble - VT
+				flowerImage1.setVisibility(View.INVISIBLE);
+				flowerImage2.setVisibility(View.INVISIBLE);
+				flowerImage3.setVisibility(View.INVISIBLE);
+				flowerImage4.setVisibility(View.INVISIBLE);
+				
+				flowerButton.setOnClickListener(this);		
+		
+		
 	}
 
 
@@ -176,5 +209,36 @@ public class MainActivity extends Activity {
 			}
 
 			return false;
-		}}}
+		}
+		
+	}
+	
+	
+	public void fAnimation(ImageView FI){
+		FI.setVisibility(View.VISIBLE);
+		FI.startAnimation(flowerAnimation);
+		FI.setVisibility(View.INVISIBLE);
+	}
+	
+	public void fAnimation1(ImageView FI){
+		FI.setVisibility(View.VISIBLE);
+		FI.startAnimation(flowerAnimation1);
+		FI.setVisibility(View.INVISIBLE);
+	}
+	
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
+		if (v == flowerButton ){
+			fAnimation(flowerImage4);
+			fAnimation(flowerImage3);
+			fAnimation1(flowerImage1);
+			fAnimation1(flowerImage2);
+		}
+		
+	}
+	
+
+}
 	
