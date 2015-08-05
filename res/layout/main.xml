@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     
@@ -9,18 +9,18 @@
     <!--  Inside or Flipper section content -->
     <ViewFlipper
         android:id="@+id/view_flipper"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
             <!-- Hanuman Home image -->
 
             <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
@@ -32,17 +32,15 @@
                 style="@style/ImageTitle"
                 android:text="@string/BAJRANGBALI" />
 
-         
-
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 <!--  Hanuman Home images -->
             <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
@@ -54,12 +52,12 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 <!--  Hanuman Home images -->
             <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
@@ -71,12 +69,12 @@
         </RelativeLayout>
         
           <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 <!--  Hanuman Home images -->
             <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
@@ -95,9 +93,52 @@
              style="@style/ButtonContainer"
              android:layout_alignParentBottom="true"
              android:gravity="center|bottom" 
+             android:layout_gravity="bottom"
              android:background="@android:color/transparent" >
 
-             <Button
+           <!-- Button for image play and stop -->
+          
+           <!--       <Button
+                    android:id="@+id/play"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/ic_media_play" />
+                    
+                <Button
+                    android:id="@+id/stop"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="165dp"
+                    android:layout_toRightOf="@id/play"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/ic_media_pause" />
+                -->
+                <Button
+                    android:id="@+id/play1"
+                    android:layout_width="28dp"
+                 android:layout_height="30dp"
+                 android:layout_marginLeft="1dp"
+                 android:layout_marginRight="1dp"
+                
+                    android:background="@drawable/play1" 
+                     android:minHeight="28dp"
+                 android:minWidth="28dp" 
+                    />
+                    
+                <Button
+                    android:id="@+id/pause1"
+                   android:layout_width="28dp"
+                 android:layout_height="30dp"
+                 android:layout_marginLeft="1dp"
+                 android:layout_marginRight="1dp"
+                    android:layout_toRightOf="@id/play1"
+                    
+                    android:background="@drawable/pause1" 
+                     android:minHeight="28dp"
+                 android:minWidth="28dp" />
+                
+                  <Button
                  android:id="@+id/flwButton"
                  style="?android:attr/buttonStyleSmall"
                  android:layout_width="28dp"
@@ -107,44 +148,16 @@
                  android:background="@drawable/btnflower"
                  android:minHeight="28dp"
                  android:minWidth="28dp" />
-         
-                <Button
-                    android:id="@+id/play"
-                    android:layout_width="25dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginRight="1dp"
-                    android:background="@android:drawable/ic_media_play" />
-                    
-                <Button
-                    android:id="@+id/stop"
-                    android:layout_width="22dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="165dp"
-                    android:background="@android:drawable/ic_media_pause" />
-                
-                <Button
-                    android:id="@+id/play1"
-                    android:layout_width="34dp"
-                    android:layout_height="27dp"
-                    android:background="@drawable/play1" />
-                    
-                <Button
-                    android:id="@+id/pause1"
-                    android:layout_width="match_parent"
-                    android:layout_height="27dp"
-                    android:background="@drawable/pause1" />
       
             </LinearLayout>
    
          
-         <LinearLayout
+        <LinearLayout
              style="@style/ButtonContainer"
              android:layout_alignParentBottom="true"
              android:gravity="center|top" 
              android:background="@android:color/transparent" >
-         
+
                 <ImageView
                     android:id="@+id/flower1"
                     android:layout_width="wrap_content"

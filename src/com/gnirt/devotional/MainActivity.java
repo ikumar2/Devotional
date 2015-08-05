@@ -48,6 +48,13 @@ public class MainActivity extends Activity implements OnClickListener {
 	private MediaPlayer player;
     private ImageButton	btplay;
     
+    // Media Button initialization - IA
+    
+    private Button playbutton;
+    private Button pausebutton;
+    private Button play1button;
+    private Button pause1button;
+    boolean rotate=true;
     // Flowers Animation variable initialization - VT
     
     private ImageView flowerImage1;
@@ -66,7 +73,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		// Audio Code	
+		// Audio Code	- IA
 		
 		// MediaPlayer player;
 		AssetFileDescriptor afd;
@@ -88,61 +95,108 @@ public class MainActivity extends Activity implements OnClickListener {
 		e.printStackTrace();
 		}
 	
-		//Handle action of button
+		//Music player action of buttons - IA
+		
+		
+		play1button = (Button)findViewById(R.id.play1);
+		play1button.setVisibility(Button.GONE);
+		pause1button = (Button)findViewById(R.id.pause1);
 		
 		 findViewById(R.id.pause1).setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
 					player.pause();
-					//btplay.setImageResource(player.isPlaying() ? R.drawable.pause1 : R.drawable.play1);
+					 pause1button.setVisibility(Button.GONE);
+					 play1button.setVisibility(Button.VISIBLE);
 				}	
 				});
 		 
-		 findViewById(R.id.play1).setOnClickListener(new OnClickListener() {
+		
+	            findViewById(R.id.play1).setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
 					player.start();
-				}	
+					play1button.setVisibility(Button.GONE);
+					pause1button.setVisibility(Button.VISIBLE);
+					System.out.println("paly");
+				}
+				
 				});
-		 
-	
+	           
+
 		
-		
-		
-		
-	//  ViewFliper code	
+	//  ViewFliper code	Via touch base handling stop and start - IA
 		mContext = this;
 		Activity mActivity = this;
 		mViewFlipper = (ViewFlipper) this.findViewById(R.id.view_flipper);
 		mViewFlipper.setOnTouchListener(new OnTouchListener()
 		{
+			
+			
 			@Override
 			public boolean onTouch(final View view, final MotionEvent event) {
 				detector.onTouchEvent(event);
+				//rotate = !rotate;
+				System.out.println("First" +rotate);
+				System.out.println( event.getAction());
+				
+				
+				if (rotate){
+					mViewFlipper.stopFlipping();
+					rotate=!rotate;
+					System.out.println("stop" +rotate);
+				}
+				else {
+					mViewFlipper.setAutoStart(true);
+					mViewFlipper.setFlipInterval(2000);
+					mViewFlipper.startFlipping();
+					rotate=!rotate;
+					System.out.println("play" +rotate);
+					
+					
+				}
+				if(event.getAction()==0){
+				rotate=!rotate;
+				System.out.println("outside" +rotate);}
 				return true;
+				
 			}
-		});
+			
+		}
 		
-	   mViewFlipper.setAutoStart(true);
-	   findViewById(R.id.play).setOnClickListener(new OnClickListener() {
+		  );
+		
+		// Old code for handling images start and stop via button - IA
+		
+	  mViewFlipper.setAutoStart(true);
+    // playbutton = (Button)  findViewById(R.id.play);
+     // playbutton.setVisibility(Button.GONE);
+    
+	/*		 playbutton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				//sets auto flipping
 				mViewFlipper.setAutoStart(true);
 				mViewFlipper.setFlipInterval(2000);
 				mViewFlipper.startFlipping();
+				playbutton.setVisibility(Button.GONE);
+				pausebutton.setVisibility(Button.VISIBLE);
 			}
-		});
+		});*/
 
-		findViewById(R.id.stop).setOnClickListener(new OnClickListener() {
+	//pausebutton= (Button)findViewById(R.id.stop);
+	//pausebutton.setVisibility(Button.GONE);
+	/*pausebutton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				//stop auto flipping 
 				mViewFlipper.stopFlipping();
+				pausebutton.setVisibility(Button.GONE);
+				playbutton.setVisibility(Button.VISIBLE);
 			}
 		});
-		
-		
+		*/
+	
 		//animation listener
 		mAnimationListener = new Animation.AnimationListener() {
 			@Override
@@ -182,7 +236,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 	}
 
-
+// Image swipe and handle next and previous via swipegeturedetector - IA
 	class SwipeGestureDetector extends SimpleOnGestureListener {
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
@@ -194,6 +248,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					// controlling animation
 					mViewFlipper.getInAnimation().setAnimationListener(mAnimationListener);
 					mViewFlipper.showNext();
+					System.out.println("Next screen");
 					return true;
 				} else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
 					mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
@@ -201,6 +256,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					// controlling animation
 					mViewFlipper.getInAnimation().setAnimationListener(mAnimationListener);
 					mViewFlipper.showPrevious();
+					System.out.println("Previous screen");
 					return true;
 				}
 				
@@ -231,10 +287,17 @@ public class MainActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		
 		if (v == flowerButton ){
-			fAnimation(flowerImage4);
+		/*	fAnimation(flowerImage4);
 			fAnimation(flowerImage3);
 			fAnimation1(flowerImage1);
 			fAnimation1(flowerImage2);
+		*/
+			
+			fAnimation(flowerImage1);
+			fAnimation(flowerImage3);
+			fAnimation1(flowerImage2);
+			fAnimation1(flowerImage4);
+			
 		}
 		
 	}
