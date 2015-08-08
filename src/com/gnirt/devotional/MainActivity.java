@@ -90,7 +90,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		player.prepare();
 		
 		//By default it is going to playing on opening application.
-		player.start();
+		//player.start();
+		// player.stop();
 		} catch (IOException e) {
 		e.printStackTrace();
 		}
@@ -99,9 +100,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		
 		play1button = (Button)findViewById(R.id.play1);
-		play1button.setVisibility(Button.GONE);
+		// play1button.setVisibility(Button.GONE);
 		pause1button = (Button)findViewById(R.id.pause1);
-		
+		pause1button.setVisibility(Button.GONE);
 		 findViewById(R.id.pause1).setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
@@ -136,28 +137,20 @@ public class MainActivity extends Activity implements OnClickListener {
 			@Override
 			public boolean onTouch(final View view, final MotionEvent event) {
 				detector.onTouchEvent(event);
-				//rotate = !rotate;
-				System.out.println("First" +rotate);
-				System.out.println( event.getAction());
-				
-				
+
 				if (rotate){
 					mViewFlipper.stopFlipping();
 					rotate=!rotate;
-					System.out.println("stop" +rotate);
 				}
 				else {
 					mViewFlipper.setAutoStart(true);
 					mViewFlipper.setFlipInterval(2000);
 					mViewFlipper.startFlipping();
 					rotate=!rotate;
-					System.out.println("play" +rotate);
-					
-					
 				}
 				if(event.getAction()==0){
 				rotate=!rotate;
-				System.out.println("outside" +rotate);}
+				}
 				return true;
 				
 			}
