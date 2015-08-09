@@ -36,7 +36,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
+
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
 
 public class MainActivity extends Activity implements OnClickListener {
 
@@ -225,7 +230,26 @@ public class MainActivity extends Activity implements OnClickListener {
 				flowerImage4.setVisibility(View.INVISIBLE);
 				
 				flowerButton.setOnClickListener(this);		
-		
+			
+		// Google ad View java code - VT
+				
+				/* AdView mAdView = (AdView) findViewById(R.id.adView);
+		        //AdRequest adRequest = new AdRequest.Builder().build();
+		        AdRequest request = new AdRequest()
+		                .addTestDevice(AdRequest.TEST_EMULATOR	);        // All emulators
+		                //.addTestDevice("AC98C820A50B4AD8A2106EDE96FB87D4");  // My Galaxy Nexus test phone
+		                //.build();
+		        mAdView.loadAd(request);		
+		        */
+				//LinearLayout layout = (LinearLayout) findViewById(R.id.adView);
+				AdView layout = (AdView) findViewById(R.id.adView);
+				AdView adView = new AdView(this, AdSize.BANNER, "a14ff402be4457c");
+			    layout.addView(adView);
+		 
+			    AdRequest adRequest = new AdRequest();
+			    adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
+				adView.loadAd(adRequest);
+				
 		
 	}
 
