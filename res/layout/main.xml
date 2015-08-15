@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
-     
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+     android:background="@android:color/black">
 
     
     
@@ -65,7 +65,7 @@
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/homebajrangbali06" />
+                android:src="@drawable/homebajrangbali03" />
 <!--  Hanuman Home Text -->
             <TextView
                 style="@style/ImageTitle"
@@ -82,12 +82,82 @@
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/homebajrangbali07" />
+                android:src="@drawable/homebajrangbali04" />
 <!--  Hanuman Home Text -->
             <TextView
                 style="@style/ImageTitle"
-                android:text="@string/RAM_DHAAN" />
+                android:text="@string/RAM_MILAN" />
         </RelativeLayout>
+        
+           <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/homebajrangbali05" />
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/RAM_KIRPA" />
+        </RelativeLayout>
+        
+           <!--  Hanuman Chalisa -->
+           <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--  Hanuman Chalisa 1 images -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/homebajrangbali06c" />
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/Hanuman_Chalisa1" />
+        </RelativeLayout>
+        
+           <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/homebajrangbali07c" />
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/Hanuman_Chalisa2" />
+        </RelativeLayout>
+        
+           <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/homebajrangbali08c" />
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/Hanuman_Chalisa3" />
+        </RelativeLayout>
+           
    
     </ViewFlipper>
     
@@ -96,8 +166,9 @@
          <LinearLayout
              style="@style/ButtonContainer"
              android:layout_alignParentBottom="true"
-             android:gravity="bottom" 
              android:layout_gravity="center"
+             android:gravity="bottom" 
+           
              android:background="@android:color/transparent" >
 
            <!-- Button for image play and stop -->
@@ -120,11 +191,11 @@
                 -->
                 <Button
                     android:id="@+id/play1"
-                    android:layout_width="30dp"
-                 android:layout_height="30dp"
+                    android:layout_width="42dp"
+                 android:layout_height="42dp"
                  android:layout_marginLeft="10dp"
                  android:layout_marginRight="1dp"
-                 android:layout_marginBottom="5dp"
+                 android:layout_marginBottom="2dp"
                     android:background="@drawable/play1" 
                      android:minHeight="28dp"
                  android:minWidth="28dp" 
@@ -132,31 +203,61 @@
                     
                 <Button
                     android:id="@+id/pause1"
-                   android:layout_width="30dp"
-                 android:layout_height="30dp"
+                   android:layout_width="42dp"
+                 android:layout_height="42dp"
                  android:layout_marginLeft="10dp"
                  android:layout_marginRight="1dp"
-                  android:layout_marginBottom="5dp"
+                  android:layout_marginBottom="2dp"
                     android:layout_toRightOf="@id/play1"
                     
                     android:background="@drawable/pause1" 
                      android:minHeight="28dp"
                  android:minWidth="28dp" />
                 
+                 
+                
                   <Button
                  android:id="@+id/flwButton"
                  style="?android:attr/buttonStyleSmall"
-                 android:layout_width="30dp"
-                 android:layout_height="30dp"
+                 android:layout_width="42dp"
+                 android:layout_height="42dp"
                  android:layout_marginLeft="1dp"
                  android:layout_marginRight="1dp"
-                  android:layout_marginBottom="5dp"
+                  android:layout_marginBottom="2dp"
                  android:background="@drawable/btnflower"
                  android:minHeight="28dp"
                  android:minWidth="28dp" />
-      
+               
+     
             </LinearLayout>
-   
+            <RelativeLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+            <Button
+                    android:id="@+id/replay1"
+                   android:layout_width="40dp"
+                 android:layout_height="40dp"
+                  android:layout_alignParentRight="true"
+                   android:layout_marginRight="10dp"
+                 android:layout_alignParentBottom="true"
+                 android:layout_marginBottom="3dp"
+                    android:background="@drawable/replay1" 
+                     android:minHeight="28dp"
+                 android:minWidth="28dp" />
+                  
+                    <Button
+                    android:id="@+id/replaystop1"
+                   android:layout_width="40dp"
+                 android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                   android:layout_marginRight="10dp"
+                 android:layout_alignParentBottom="true"
+                 android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@id/replay1"
+                    android:background="@drawable/replaystop1" 
+                     android:minHeight="28dp"
+                 android:minWidth="28dp" />
+   </RelativeLayout>
          
         <LinearLayout
              style="@style/ButtonContainer"
@@ -166,26 +267,38 @@
 
                 <ImageView
                     android:id="@+id/flower1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/ic_flower" />
                     
                 <ImageView
                     android:id="@+id/flower2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/ic_flower" />
                 
                 <ImageView
                     android:id="@+id/flower3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/ic_flower" />
                     
                <ImageView
                     android:id="@+id/flower4"
-                    android:layout_width="wrap_content"
-        			android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+        			android:layout_height="30dp"
+                    android:src="@drawable/ic_flower" />
+               
+               <ImageView
+                    android:id="@+id/flower5"
+                    android:layout_width="30dp"
+        			android:layout_height="30dp"
+                    android:src="@drawable/ic_flower" />
+                 
+                   <ImageView
+                    android:id="@+id/flower6"
+                    android:layout_width="30dp"
+        			android:layout_height="30dp"
                     android:src="@drawable/ic_flower" />
       
             </LinearLayout>
@@ -211,11 +324,12 @@
     
        -->
        
-       <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-<!-- Android Ad View Code for XML  -->
-	<com.google.ads.AdView
+            android:layout_height="match_parent"> 
+            
+      <!--       Android Ad View Code for XML  -->
+  	<com.google.ads.AdView
         android:id="@+id/adView"
         android:layout_marginLeft="20dp"
 		android:layout_marginRight="20dp"

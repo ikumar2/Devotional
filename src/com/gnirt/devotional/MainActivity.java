@@ -23,6 +23,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
@@ -55,10 +56,12 @@ public class MainActivity extends Activity implements OnClickListener {
     
     // Media Button initialization - IA
     
-    private Button playbutton;
-    private Button pausebutton;
+   // private Button playbutton;
+   // private Button pausebutton;
     private Button play1button;
     private Button pause1button;
+    private Button replay1button;
+    private Button replaystop1button;
     boolean rotate=true;
     // Flowers Animation variable initialization - VT
     
@@ -66,6 +69,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	private ImageView flowerImage2;
 	private ImageView flowerImage3;
 	private ImageView flowerImage4;
+	private ImageView flowerImage5;
+	private ImageView flowerImage6;
 	private Animation flowerAnimation;
 	private Animation flowerAnimation1;
 	private Button flowerButton;
@@ -90,6 +95,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		// Set the player music source.
 		player.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(),afd.getLength());
 		
+		System.out.println("AFD length" +afd.getLength());
 		// Set the looping and play the music.
 		player.setLooping(true);
 		player.prepare();
@@ -97,6 +103,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		//By default it is going to playing on opening application.
 		//player.start();
 		// player.stop();
+		
 		} catch (IOException e) {
 		e.printStackTrace();
 		}
@@ -105,7 +112,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		
 		play1button = (Button)findViewById(R.id.play1);
-		// play1button.setVisibility(Button.GONE);
+		//play1button.setVisibility(Button.GONE);
 		pause1button = (Button)findViewById(R.id.pause1);
 		pause1button.setVisibility(Button.GONE);
 		 findViewById(R.id.pause1).setOnClickListener(new OnClickListener() {
@@ -114,6 +121,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					player.pause();
 					 pause1button.setVisibility(Button.GONE);
 					 play1button.setVisibility(Button.VISIBLE);
+					// player.release();
 				}	
 				});
 		 
@@ -129,7 +137,51 @@ public class MainActivity extends Activity implements OnClickListener {
 				
 				});
 	           
+	          //Music player Replay buttons Action - IA
+	            
+	            replay1button = (Button)findViewById(R.id.replay1);
+	    		replay1button.setVisibility(Button.GONE);
+	    		replaystop1button = (Button)findViewById(R.id.replaystop1);
+	    		// replaystop1button.setVisibility(Button.GONE);
+	    		 findViewById(R.id.replaystop1).setOnClickListener(new OnClickListener() {
+	    				@Override
+	    				public void onClick(View view) {
+	    				player.setLooping(false);
+	    					 replaystop1button.setVisibility(Button.GONE);
+	    					 replay1button.setVisibility(Button.VISIBLE);
+	    					// System.out.println("replay false" + false);
+	    					
+	    				}	
+	    				});
+	    		 
+	    		
+	    	            findViewById(R.id.replay1).setOnClickListener(new OnClickListener() {
+	    				@Override
+	    				public void onClick(View view) {
+	    					player.setLooping(true);
+	    					replay1button.setVisibility(Button.GONE);
+	    					replaystop1button.setVisibility(Button.VISIBLE);
+	    				//	 System.out.println("replay true" + true);
+	    				}
+	    				
+	    				});
+	    	           // Play button should visible once hanuman chalisa would be completed
+	    	            
+	    	            player.setOnCompletionListener(new OnCompletionListener() {
+	    	            		
+	    	            	@Override
+	    	            	public void onCompletion(MediaPlayer player) {
+	    	            		if (!player.isLooping()){
+	    	            			System.out.println("player looping status" + !player.isLooping());
+	    	            			 pause1button.setVisibility(Button.GONE);
+	    	    					 play1button.setVisibility(Button.VISIBLE);
+	    	    					 System.out.println(" play1button vissible");
+	    	            		}
+	    	            		}
 
+	    	            		});
+
+	            
 		
 	//  ViewFliper code	Via touch base handling stop and start - IA
 		mContext = this;
@@ -137,8 +189,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		mViewFlipper = (ViewFlipper) this.findViewById(R.id.view_flipper);
 		mViewFlipper.setOnTouchListener(new OnTouchListener()
 		{
-			
-			
 			@Override
 			public boolean onTouch(final View view, final MotionEvent event) {
 				detector.onTouchEvent(event);
@@ -153,9 +203,9 @@ public class MainActivity extends Activity implements OnClickListener {
 					mViewFlipper.startFlipping();
 					rotate=!rotate;
 				}
-				if(event.getAction()==0){
+			/*	if(event.getAction()==0){
 				rotate=!rotate;
-				}
+				}*/
 				return true;
 				
 			}
@@ -217,10 +267,12 @@ public class MainActivity extends Activity implements OnClickListener {
 				flowerButton = (Button) findViewById(R.id.flwButton);
 				flowerImage1 = (ImageView) findViewById(R.id.flower1);
 				flowerImage3 = (ImageView) findViewById(R.id.flower3);
+				flowerImage5 = (ImageView) findViewById(R.id.flower5);
 				flowerAnimation = AnimationUtils.loadAnimation(this, R.anim.flower);
 				
 				flowerImage2 = (ImageView) findViewById(R.id.flower2);
 				flowerImage4 = (ImageView) findViewById(R.id.flower4);
+				flowerImage6 = (ImageView) findViewById(R.id.flower6);
 				flowerAnimation1 = AnimationUtils.loadAnimation(this, R.anim.flower1);
 				
 				// Initial call make image invisble - VT
@@ -228,6 +280,8 @@ public class MainActivity extends Activity implements OnClickListener {
 				flowerImage2.setVisibility(View.INVISIBLE);
 				flowerImage3.setVisibility(View.INVISIBLE);
 				flowerImage4.setVisibility(View.INVISIBLE);
+				flowerImage5.setVisibility(View.INVISIBLE);
+				flowerImage6.setVisibility(View.INVISIBLE);
 				
 				flowerButton.setOnClickListener(this);		
 			
@@ -312,8 +366,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			
 			fAnimation(flowerImage1);
 			fAnimation(flowerImage3);
+			fAnimation1(flowerImage5);
 			fAnimation1(flowerImage2);
 			fAnimation1(flowerImage4);
+			fAnimation1(flowerImage6);
 			
 		}
 		

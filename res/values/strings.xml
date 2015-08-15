@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Tring_HANUMAN_CHALISA</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="Title">HANUMANBAJRANGBALI</string>
+    <string name="app_name" translatable="false">Tring_HANUMAN_CHALISA</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="Title" translatable="false">HANUMAN BAJRANGBALI</string>
   
-    <string name="BAJRANGBALI">BAJRANGBALI</string>
-    <string name="PANCHMUKHI">PANCHMUKHI</string>
-    <string name="homebajrangbali03">homebajrangbali03</string>
-    <string name="RAM_SIMRAN">RAM_SIMRAN</string>
-    <string name="RAM_DHAAN">RAM_DHAAN</string>
-	<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="BAJRANGBALI" translatable="false">BAJRANGBALI</string>
+    <string name="PANCHMUKHI" translatable="false">PANCHMUKHI</string>
+    <string name="RAM_SIMRAN" translatable="false">RAM SIMRAN</string>
+    <string name="RAM_MILAN" translatable="false">RAM MILAN</string>
+    <string name="RAM_KIRPA" translatable="false">RAM KIRPA</string>
+    <string name="Hanuman_Chalisa1" translatable="false">Hanuman CHALISA PART1</string>
+    <string name="Hanuman_Chalisa2" translatable="false">Hanuman CHALISA PART2</string>
+    <string name="Hanuman_Chalisa3" translatable="false">Hanuman CHALISA PART3</string>
+	<string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
 </resources>
