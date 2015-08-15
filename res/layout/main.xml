@@ -269,36 +269,42 @@
                     android:id="@+id/flower1"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginTop="30dp"
                     android:src="@drawable/ic_flower" />
                     
                 <ImageView
                     android:id="@+id/flower2"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginTop="30dp"
                     android:src="@drawable/ic_flower" />
                 
                 <ImageView
                     android:id="@+id/flower3"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginTop="30dp"
                     android:src="@drawable/ic_flower" />
                     
                <ImageView
                     android:id="@+id/flower4"
                     android:layout_width="30dp"
         			android:layout_height="30dp"
+        			android:layout_marginTop="30dp"
                     android:src="@drawable/ic_flower" />
                
                <ImageView
                     android:id="@+id/flower5"
                     android:layout_width="30dp"
         			android:layout_height="30dp"
+        			android:layout_marginTop="30dp"
                     android:src="@drawable/ic_flower" />
                  
                    <ImageView
                     android:id="@+id/flower6"
                     android:layout_width="30dp"
         			android:layout_height="30dp"
+        			android:layout_marginTop="30dp"
                     android:src="@drawable/ic_flower" />
       
             </LinearLayout>
@@ -324,12 +330,12 @@
     
        -->
        
-        <LinearLayout
+         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"> 
             
       <!--       Android Ad View Code for XML  -->
-  	<com.google.ads.AdView
+   	<com.google.ads.AdView
         android:id="@+id/adView"
         android:layout_marginLeft="20dp"
 		android:layout_marginRight="20dp"

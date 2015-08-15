@@ -97,7 +97,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		System.out.println("AFD length" +afd.getLength());
 		// Set the looping and play the music.
-		player.setLooping(true);
+		//player.setLooping(true);
 		player.prepare();
 		
 		//By default it is going to playing on opening application.
@@ -140,8 +140,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	          //Music player Replay buttons Action - IA
 	            
 	            replay1button = (Button)findViewById(R.id.replay1);
-	    		replay1button.setVisibility(Button.GONE);
+	    	//	replay1button.setVisibility(Button.GONE);
 	    		replaystop1button = (Button)findViewById(R.id.replaystop1);
+	    		replaystop1button.setVisibility(Button.GONE);
 	    		// replaystop1button.setVisibility(Button.GONE);
 	    		 findViewById(R.id.replaystop1).setOnClickListener(new OnClickListener() {
 	    				@Override

@@ -2,7 +2,7 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android" >
 
    	<alpha
-        android:duration="2000"
+        android:duration="200"
         android:fromAlpha="0.2"
         android:toAlpha="1.0" />
     
@@ -11,7 +11,7 @@
         android:fromXDelta="0"
         android:fromYDelta="0"
         android:toXDelta="10" 
-        android:toYDelta="1400"/>
+        android:toYDelta="2000"/>
    
    
    <rotate
