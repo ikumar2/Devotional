@@ -21,16 +21,22 @@ import java.io.IOException;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
@@ -75,6 +81,10 @@ public class MainActivity extends Activity implements OnClickListener {
 	private Animation flowerAnimation1;
 	private Button flowerButton;
 	
+	// Phone listner
+	
+	private PhoneStateListener mPhoneListener;
+	
 	@SuppressWarnings("deprecation")
 	private final GestureDetector detector = new GestureDetector(new SwipeGestureDetector());
 
@@ -104,10 +114,57 @@ public class MainActivity extends Activity implements OnClickListener {
 		//player.start();
 		// player.stop();
 		
+		
 		} catch (IOException e) {
 		e.printStackTrace();
+		
 		}
 	
+		TelephonyManager tm = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
+		tm.listen(mPhoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+		
+		// somewhere else
+		 mPhoneListener = new PhoneStateListener() {
+		    public void onCallStateChanged(int state, String incomingNumber) {
+		        //try {
+		            switch (state) {
+		            case TelephonyManager.CALL_STATE_RINGING:
+		            	System.out.println("Ringing" +state);
+		            	
+		            	 player.pause();
+						 pause1button.setVisibility(Button.GONE);
+						 play1button.setVisibility(Button.VISIBLE);
+		                break;
+
+		            case TelephonyManager.CALL_STATE_OFFHOOK:
+		            	System.out.println("CALL_STATE_OFFHOOK" +state);
+		                // do something...
+		            	player.pause();
+						 pause1button.setVisibility(Button.GONE);
+						 play1button.setVisibility(Button.VISIBLE);
+						 
+					/*	 Intent startMain = new Intent(Intent.ACTION_MAIN);
+		                    startMain.addCategory(Intent.CATEGORY_HOME);
+		                    startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		                    activity.startActivity(startMain);*/
+		            	break;
+
+		            case TelephonyManager.CALL_STATE_IDLE:
+		            	System.out.println("CALL_STATE_IDLE" +state);
+		                // do something...
+		            	 player.pause();
+						 pause1button.setVisibility(Button.GONE);
+						 play1button.setVisibility(Button.VISIBLE); 
+		            	break;
+		            default:
+		                System.out.println("Unknown phone state=" + state);
+		            }
+		        } //catch (RemoteException e) {}
+		   // } 
+		};
+	//	tm.listen(mPhoneListener, PhoneStateListener.LISTEN_CALL_STATE);	
+	
+		
 		//Music player action of buttons - IA
 		
 		

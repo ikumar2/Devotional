@@ -27,6 +27,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/homebajrangbali01" />
+            <!--      android:scaleType="centerCrop"-->
             <!-- Hanuman Home Text -->
 
             <TextView
