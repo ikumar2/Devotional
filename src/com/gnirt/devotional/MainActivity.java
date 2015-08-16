@@ -20,6 +20,8 @@ import android.support.v4.view.ViewPager;*/
 import java.io.IOException;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
@@ -27,6 +29,7 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.support.v7.app.NotificationCompat;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -80,6 +83,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	private Animation flowerAnimation;
 	private Animation flowerAnimation1;
 	private Button flowerButton;
+	
+	//Setting up NotificationID - VT
+	private static int notificationId = 1;
 	
 	// Phone listner
 	
@@ -190,10 +196,12 @@ public class MainActivity extends Activity implements OnClickListener {
 		 findViewById(R.id.pause1).setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
+					// Cancel Notification
+					cancelNotification();
 					player.pause();
-					 pause1button.setVisibility(Button.GONE);
-					 play1button.setVisibility(Button.VISIBLE);
-					 System.out.println("On second time pause gone");
+					pause1button.setVisibility(Button.GONE);
+					play1button.setVisibility(Button.VISIBLE);
+					System.out.println("On second time pause gone");
 					// player.release();
 				}	
 				});
@@ -202,6 +210,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	            findViewById(R.id.play1).setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
+					// Initialize Notification
+					initNotification();
 					player.start();
 					play1button.setVisibility(Button.GONE);
 					pause1button.setVisibility(Button.VISIBLE);
@@ -455,6 +465,30 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 	}
 	
+	// Create Notification -- VT
+	private void initNotification() {
+
+	    Intent intent = new Intent(this, MainActivity.class);
+	    Context context = getApplicationContext();
+
+	    PendingIntent penInt = PendingIntent.getActivity(context, 0, intent, 0);
+
+	    long when = System.currentTimeMillis();
+	    NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+	    builder.setContentTitle("Hanuman Chalisa App");
+	    builder.setContentText("Hanuman Chalisa is Playing...");
+	    builder.setSmallIcon(R.drawable.tring_devotion_hanuman);
+	    builder.setTicker("Media  Playing...");
+	    builder.setContentIntent(penInt);
+	    NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+	    notificationManager.notify(notificationId, builder.build());
+
+	}
+
+	private void cancelNotification() {
+	    NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+	    notificationManager.cancel(notificationId);
+	}
 
 }
 	
