@@ -57,9 +57,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	private ViewFlipper mViewFlipper;	
 	private AnimationListener mAnimationListener;
 	private Context mContext;
-	private MediaPlayer player;
+	private MediaPlayer player = null;
     private ImageButton	btplay;
-    
+    static private int x=0;
     // Media Button initialization - IA
     
    // private Button playbutton;
@@ -103,6 +103,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		// Creation of new media player;
 		player = new MediaPlayer();
 		// Set the player music source.
+		if(!player.isPlaying());{
+		System.out.println("Player is not playing" +player.isPlaying());
+		
 		player.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(),afd.getLength());
 		
 		System.out.println("AFD length" +afd.getLength());
@@ -112,37 +115,45 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		//By default it is going to playing on opening application.
 		//player.start();
-		// player.stop();
+	//	player.pause();
 		
 		
-		} catch (IOException e) {
+		}} catch (IOException e) {
 		e.printStackTrace();
 		
 		}
 	
-		TelephonyManager tm = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
-		tm.listen(mPhoneListener, PhoneStateListener.LISTEN_CALL_STATE);
-		
-		// somewhere else
+		TelephonyManager tm = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
 		 mPhoneListener = new PhoneStateListener() {
+		// tm.listen(mPhoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+	//	System.out.println("Intial phone" +mPhoneListener);
+		// somewhere else
+		// mPhoneListener = new PhoneStateListener() {
+				
+			 @Override
 		    public void onCallStateChanged(int state, String incomingNumber) {
+					System.out.println("Intial phone" +state + " " +incomingNumber);
 		        //try {
 		            switch (state) {
 		            case TelephonyManager.CALL_STATE_RINGING:
 		            	System.out.println("Ringing" +state);
-		            	
+		            	mViewFlipper.stopFlipping();
+		            	if (player.isPlaying()){
 		            	 player.pause();
 						 pause1button.setVisibility(Button.GONE);
 						 play1button.setVisibility(Button.VISIBLE);
+		            	}
 		                break;
 
 		            case TelephonyManager.CALL_STATE_OFFHOOK:
 		            	System.out.println("CALL_STATE_OFFHOOK" +state);
 		                // do something...
+		            	mViewFlipper.stopFlipping();
+		            	if (player.isPlaying()){
 		            	player.pause();
 						 pause1button.setVisibility(Button.GONE);
 						 play1button.setVisibility(Button.VISIBLE);
-						 
+		            	}
 					/*	 Intent startMain = new Intent(Intent.ACTION_MAIN);
 		                    startMain.addCategory(Intent.CATEGORY_HOME);
 		                    startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -151,10 +162,12 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		            case TelephonyManager.CALL_STATE_IDLE:
 		            	System.out.println("CALL_STATE_IDLE" +state);
-		                // do something...
-		            	 player.pause();
-						 pause1button.setVisibility(Button.GONE);
-						 play1button.setVisibility(Button.VISIBLE); 
+		            	mViewFlipper.startFlipping();
+		                if (x!=0){
+		                	player.start();
+		            	play1button.setVisibility(Button.GONE); 
+						pause1button.setVisibility(Button.VISIBLE);  
+		                }
 		            	break;
 		            default:
 		                System.out.println("Unknown phone state=" + state);
@@ -162,6 +175,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		        } //catch (RemoteException e) {}
 		   // } 
 		};
+		tm.listen(mPhoneListener, PhoneStateListener.LISTEN_CALL_STATE);
 	//	tm.listen(mPhoneListener, PhoneStateListener.LISTEN_CALL_STATE);	
 	
 		
@@ -172,12 +186,14 @@ public class MainActivity extends Activity implements OnClickListener {
 		//play1button.setVisibility(Button.GONE);
 		pause1button = (Button)findViewById(R.id.pause1);
 		pause1button.setVisibility(Button.GONE);
+		System.out.println("On first time pause gone");
 		 findViewById(R.id.pause1).setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
 					player.pause();
 					 pause1button.setVisibility(Button.GONE);
 					 play1button.setVisibility(Button.VISIBLE);
+					 System.out.println("On second time pause gone");
 					// player.release();
 				}	
 				});
@@ -190,6 +206,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					play1button.setVisibility(Button.GONE);
 					pause1button.setVisibility(Button.VISIBLE);
 					System.out.println("paly");
+					x=1;
 				}
 				
 				});
@@ -231,15 +248,20 @@ public class MainActivity extends Activity implements OnClickListener {
 	    	            	public void onCompletion(MediaPlayer player) {
 	    	            		if (!player.isLooping()){
 	    	            			System.out.println("player looping status" + !player.isLooping());
+	    	            			 if (player != null) {
+	    		    	                    player.release();
+	    		    	                    player = null;
+	    		    	                }
 	    	            			 pause1button.setVisibility(Button.GONE);
 	    	    					 play1button.setVisibility(Button.VISIBLE);
-	    	    					 System.out.println(" play1button vissible");
+	    	    					 System.out.println("On third time pause gone");
 	    	            		}
 	    	            		}
 
 	    	            		});
 
-	            
+	    	           
+	    	            
 		
 	//  ViewFliper code	Via touch base handling stop and start - IA
 		mContext = this;
@@ -256,8 +278,8 @@ public class MainActivity extends Activity implements OnClickListener {
 					rotate=!rotate;
 				}
 				else {
-					mViewFlipper.setAutoStart(true);
-					mViewFlipper.setFlipInterval(2000);
+					//mViewFlipper.setAutoStart(true);
+					//mViewFlipper.setFlipInterval(2000);
 					mViewFlipper.startFlipping();
 					rotate=!rotate;
 				}

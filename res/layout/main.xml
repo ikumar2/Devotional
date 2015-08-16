@@ -25,9 +25,9 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/homebajrangbali01" />
-            <!--      android:scaleType="centerCrop"-->
+            <!--      android:scaleType="fitCenter"-->
             <!-- Hanuman Home Text -->
 
             <TextView
@@ -48,7 +48,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/homebajrangbali02" />
 <!--  Hanuman Home Text -->
             <TextView
@@ -65,7 +65,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/homebajrangbali03" />
 <!--  Hanuman Home Text -->
             <TextView
@@ -82,7 +82,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/homebajrangbali04" />
 <!--  Hanuman Home Text -->
             <TextView
@@ -99,7 +99,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/homebajrangbali05" />
 <!--  Hanuman Home Text -->
             <TextView
@@ -117,7 +117,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/homebajrangbali06c" />
 <!--  Hanuman Home Text -->
             <TextView
@@ -134,7 +134,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/homebajrangbali07c" />
 <!--  Hanuman Home Text -->
             <TextView
@@ -151,7 +151,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/homebajrangbali08c" />
 <!--  Hanuman Home Text -->
             <TextView
@@ -164,13 +164,13 @@
     
        <!--  Image Moving Control Button -->
 
-         <LinearLayout
+         <!--  <LinearLayout
              style="@style/ButtonContainer"
              android:layout_alignParentBottom="true"
              android:layout_gravity="center"
              android:gravity="bottom" 
            
-             android:background="@android:color/transparent" >
+             android:background="@android:color/transparent" > -->
 
            <!-- Button for image play and stop -->
           
@@ -179,7 +179,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@android:drawable/ic_media_play" />
+                    android:background="@android:drawable/ic_media_play" /> 
                     
                 <Button
                     android:id="@+id/stop"
@@ -190,13 +190,22 @@
                     android:layout_weight="1"
                     android:background="@android:drawable/ic_media_pause" />
                 -->
-                <Button
+              
+               
+     
+         <!--     </LinearLayout> -->
+            <RelativeLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+         
+              <Button
                     android:id="@+id/play1"
                     android:layout_width="42dp"
                  android:layout_height="42dp"
-                 android:layout_marginLeft="10dp"
-                 android:layout_marginRight="1dp"
-                 android:layout_marginBottom="2dp"
+                 android:layout_alignParentLeft="true"
+                   android:layout_marginLeft="10dp"
+                    android:layout_alignParentBottom="true"
+                 android:layout_marginBottom="3dp"
                     android:background="@drawable/play1" 
                      android:minHeight="28dp"
                  android:minWidth="28dp" 
@@ -206,35 +215,32 @@
                     android:id="@+id/pause1"
                    android:layout_width="42dp"
                  android:layout_height="42dp"
-                 android:layout_marginLeft="10dp"
-                 android:layout_marginRight="1dp"
-                  android:layout_marginBottom="2dp"
+               android:layout_alignParentLeft="true"
+                   android:layout_marginLeft="10dp"
+                    android:layout_alignParentBottom="true"
+                  android:layout_marginBottom="4dp"
                     android:layout_toRightOf="@id/play1"
                     
                     android:background="@drawable/pause1" 
                      android:minHeight="28dp"
                  android:minWidth="28dp" />
                 
-                 
-                
-                  <Button
+                     <Button
                  android:id="@+id/flwButton"
                  style="?android:attr/buttonStyleSmall"
                  android:layout_width="42dp"
                  android:layout_height="42dp"
-                 android:layout_marginLeft="1dp"
-                 android:layout_marginRight="1dp"
-                  android:layout_marginBottom="2dp"
+                 android:layout_alignParentLeft="true"
+                   android:layout_marginLeft="60dp"
+                    android:layout_alignParentBottom="true"
+                  android:layout_marginBottom="3dp"
                  android:background="@drawable/btnflower"
                  android:minHeight="28dp"
                  android:minWidth="28dp" />
-               
-     
-            </LinearLayout>
-            <RelativeLayout 
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-            <Button
+                    
+            
+                
+                <Button
                     android:id="@+id/replay1"
                    android:layout_width="40dp"
                  android:layout_height="40dp"
@@ -253,7 +259,7 @@
                 android:layout_alignParentRight="true"
                    android:layout_marginRight="10dp"
                  android:layout_alignParentBottom="true"
-                 android:layout_marginBottom="5dp"
+                 android:layout_marginBottom="4dp"
                     android:layout_toRightOf="@id/replay1"
                     android:background="@drawable/replaystop1" 
                      android:minHeight="28dp"
