@@ -107,6 +107,129 @@
                 android:text="@string/RAM_KIRPA" />
         </RelativeLayout>
         
+           <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/homebajrangbali06" />
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/RAM_SADHANA" />
+        </RelativeLayout>
+ 
+        
+           <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/homebajrangbali07" />
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/RAM_KAAJ" />
+        </RelativeLayout>
+
+        
+           <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/homebajrangbali08" />
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/SANJIVANI_BUTTI" />
+        </RelativeLayout>
+
+           <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/homebajrangbali09" />
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/RAM_DUAT"/>
+        </RelativeLayout>
+        
+               <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/homebajrangbali10"/>
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/RAM_BHAJAN" />
+        </RelativeLayout>
+        
+
+           <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/homebajrangbali11"/>
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/RAM_PATH" />
+        </RelativeLayout>
+        
+               <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+           
+           <!--  Hanuman Home images -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/homebajrangbali12"/>
+<!--  Hanuman Home Text -->
+            <TextView
+                style="@style/ImageTitle"
+                android:text="@string/BAJRANGI_KIRPA" />
+        </RelativeLayout>
+        
            <!--  Hanuman Chalisa -->
            <RelativeLayout
             android:layout_width="match_parent"
@@ -118,7 +241,7 @@
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/homebajrangbali06c" />
+                android:src="@drawable/homebajrangbali13c" />
 <!--  Hanuman Home Text -->
             <TextView
                 style="@style/ImageTitle"
@@ -135,7 +258,7 @@
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/homebajrangbali07c" />
+                android:src="@drawable/homebajrangbali14c" />
 <!--  Hanuman Home Text -->
             <TextView
                 style="@style/ImageTitle"
@@ -152,7 +275,7 @@
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:src="@drawable/homebajrangbali08c" />
+                android:src="@drawable/homebajrangbali15c" />
 <!--  Hanuman Home Text -->
             <TextView
                 style="@style/ImageTitle"
@@ -203,9 +326,9 @@
                     android:layout_width="42dp"
                  android:layout_height="42dp"
                  android:layout_alignParentLeft="true"
-                   android:layout_marginLeft="10dp"
+                   android:layout_marginLeft="5dp"
                     android:layout_alignParentBottom="true"
-                 android:layout_marginBottom="3dp"
+                 android:layout_marginBottom="4dp"
                     android:background="@drawable/play1" 
                      android:minHeight="28dp"
                  android:minWidth="28dp" 
@@ -213,10 +336,10 @@
                     
                 <Button
                     android:id="@+id/pause1"
-                   android:layout_width="42dp"
-                 android:layout_height="42dp"
+                   android:layout_width="40dp"
+                 android:layout_height="40dp"
                android:layout_alignParentLeft="true"
-                   android:layout_marginLeft="10dp"
+                   android:layout_marginLeft="5dp"
                     android:layout_alignParentBottom="true"
                   android:layout_marginBottom="4dp"
                     android:layout_toRightOf="@id/play1"
@@ -231,9 +354,9 @@
                  android:layout_width="42dp"
                  android:layout_height="42dp"
                  android:layout_alignParentLeft="true"
-                   android:layout_marginLeft="60dp"
+                   android:layout_marginLeft="48dp"
                     android:layout_alignParentBottom="true"
-                  android:layout_marginBottom="3dp"
+                  android:layout_marginBottom="4dp"
                  android:background="@drawable/btnflower"
                  android:minHeight="28dp"
                  android:minWidth="28dp" />
@@ -245,9 +368,9 @@
                    android:layout_width="40dp"
                  android:layout_height="40dp"
                   android:layout_alignParentRight="true"
-                   android:layout_marginRight="10dp"
+                   android:layout_marginRight="5dp"
                  android:layout_alignParentBottom="true"
-                 android:layout_marginBottom="3dp"
+                 android:layout_marginBottom="4dp"
                     android:background="@drawable/replay1" 
                      android:minHeight="28dp"
                  android:minWidth="28dp" />
@@ -257,13 +380,40 @@
                    android:layout_width="40dp"
                  android:layout_height="40dp"
                 android:layout_alignParentRight="true"
-                   android:layout_marginRight="10dp"
+                   android:layout_marginRight="5dp"
                  android:layout_alignParentBottom="true"
                  android:layout_marginBottom="4dp"
                     android:layout_toRightOf="@id/replay1"
                     android:background="@drawable/replaystop1" 
                      android:minHeight="28dp"
                  android:minWidth="28dp" />
+                    
+                    
+                      <Button
+                    android:id="@+id/play"
+                      android:layout_width="40dp"
+                 android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                 android:layout_marginRight="5dp"
+                android:layout_centerVertical="true"
+                    android:background="@drawable/play" 
+                      android:minHeight="28dp"
+                 android:minWidth="28dp" /> 
+                    
+           <!--       Button
+                    android:id="@+id/pause"
+                     android:layout_width="50dp"
+                 android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                   android:layout_marginRight="50dp"
+                android:layout_alignParentBottom="true"  
+                 android:layout_toRightOf="@id/play"
+                    android:background="@drawable/pause" 
+                      android:minHeight="28dp"
+                 android:minWidth="28dp"  -->
+                    
+                    
+                    
    </RelativeLayout>
          
         <LinearLayout
@@ -316,33 +466,13 @@
       
             </LinearLayout>
          
-        
-<!-- 
-    <ImageView
-        android:id="@+id/swipe_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-         android:layout_centerVertical="true"
-       
-        android:src="@drawable/swipe_left" />
-
-    <ImageView
-        android:id="@+id/swipe_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/swipe_right" />
-    
-       -->
        
          <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"> 
             
       <!--       Android Ad View Code for XML  -->
-   	<com.google.ads.AdView
+ <!--    	<com.google.ads.AdView
         android:id="@+id/adView"
         android:layout_marginLeft="20dp"
 		android:layout_marginRight="20dp"
@@ -353,7 +483,7 @@
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id"
     	ads:testDevices="TEST_EMULATOR"
-		ads:loadAdOnCreate="true"/>
+		ads:loadAdOnCreate="true"/> -->
 
 </LinearLayout>
 	     

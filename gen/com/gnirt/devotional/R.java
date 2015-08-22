@@ -1932,31 +1932,35 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f020038;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f020039;
         public static final int abc_textfield_search_material=0x7f02003a;
-        public static final int audio_loop_down=0x7f02003b;
-        public static final int btnflower=0x7f02003c;
-        public static final int btnpause=0x7f02003d;
-        public static final int btnplay=0x7f02003e;
-        public static final int custom_btn=0x7f02003f;
-        public static final int homebajrangbali01=0x7f020040;
-        public static final int homebajrangbali02=0x7f020041;
-        public static final int homebajrangbali03=0x7f020042;
-        public static final int homebajrangbali04=0x7f020043;
-        public static final int homebajrangbali05=0x7f020044;
-        public static final int homebajrangbali06c=0x7f020045;
-        public static final int homebajrangbali07c=0x7f020046;
-        public static final int homebajrangbali08c=0x7f020047;
-        public static final int ic_flower=0x7f020048;
-        public static final int ic_flower1=0x7f020049;
-        public static final int ic_launcher=0x7f02004a;
-        public static final int loop1=0x7f02004b;
-        public static final int notification_template_icon_bg=0x7f020053;
-        public static final int pause1=0x7f02004c;
-        public static final int play1=0x7f02004d;
-        public static final int replay1=0x7f02004e;
-        public static final int replaystop1=0x7f02004f;
-        public static final int swipe_left=0x7f020050;
-        public static final int swipe_right=0x7f020051;
-        public static final int tring_devotion_hanuman=0x7f020052;
+        public static final int btnflower=0x7f02003b;
+        public static final int btnpause=0x7f02003c;
+        public static final int btnplay=0x7f02003d;
+        public static final int custom_btn=0x7f02003e;
+        public static final int homebajrangbali01=0x7f02003f;
+        public static final int homebajrangbali02=0x7f020040;
+        public static final int homebajrangbali03=0x7f020041;
+        public static final int homebajrangbali04=0x7f020042;
+        public static final int homebajrangbali05=0x7f020043;
+        public static final int homebajrangbali06=0x7f020044;
+        public static final int homebajrangbali07=0x7f020045;
+        public static final int homebajrangbali08=0x7f020046;
+        public static final int homebajrangbali09=0x7f020047;
+        public static final int homebajrangbali10=0x7f020048;
+        public static final int homebajrangbali11=0x7f020049;
+        public static final int homebajrangbali12=0x7f02004a;
+        public static final int homebajrangbali13c=0x7f02004b;
+        public static final int homebajrangbali14c=0x7f02004c;
+        public static final int homebajrangbali15c=0x7f02004d;
+        public static final int ic_flower=0x7f02004e;
+        public static final int ic_launcher=0x7f02004f;
+        public static final int notification_template_icon_bg=0x7f020057;
+        public static final int pause1=0x7f020050;
+        public static final int play=0x7f020051;
+        public static final int play1=0x7f020052;
+        public static final int replay1=0x7f020053;
+        public static final int replaystop1=0x7f020054;
+        public static final int swipe_left=0x7f020055;
+        public static final int tring_devotion_hanuman=0x7f020056;
     }
     public static final class id {
         public static final int action0=0x7f09005d;
@@ -1976,7 +1980,6 @@ containing a value of this type.
         public static final int action_mode_close_button=0x7f090025;
         public static final int action_settings=0x7f09006a;
         public static final int activity_chooser_view_content=0x7f090026;
-        public static final int adView=0x7f09005c;
         public static final int alertTitle=0x7f090030;
         public static final int always=0x7f090019;
         public static final int beginning=0x7f090020;
@@ -1998,12 +2001,12 @@ containing a value of this type.
         public static final int end_padder=0x7f090069;
         public static final int expand_activities_button=0x7f090027;
         public static final int expanded_menu=0x7f090037;
-        public static final int flower1=0x7f090056;
-        public static final int flower2=0x7f090057;
-        public static final int flower3=0x7f090058;
-        public static final int flower4=0x7f090059;
-        public static final int flower5=0x7f09005a;
-        public static final int flower6=0x7f09005b;
+        public static final int flower1=0x7f090057;
+        public static final int flower2=0x7f090058;
+        public static final int flower3=0x7f090059;
+        public static final int flower4=0x7f09005a;
+        public static final int flower5=0x7f09005b;
+        public static final int flower6=0x7f09005c;
         public static final int flwButton=0x7f090053;
         public static final int home=0x7f090000;
         public static final int homeAsUp=0x7f09000e;
@@ -2023,6 +2026,7 @@ containing a value of this type.
         public static final int normal=0x7f09000b;
         public static final int parentPanel=0x7f09002d;
         public static final int pause1=0x7f090052;
+        public static final int play=0x7f090056;
         public static final int play1=0x7f090051;
         public static final int progress_circular=0x7f090007;
         public static final int progress_horizontal=0x7f090008;
@@ -2149,13 +2153,20 @@ containing a value of this type.
     }
     public static final class string {
         public static final int BAJRANGBALI=0x7f0a0016;
-        public static final int Hanuman_Chalisa1=0x7f0a001b;
-        public static final int Hanuman_Chalisa2=0x7f0a001c;
-        public static final int Hanuman_Chalisa3=0x7f0a001d;
+        public static final int BAJRANGI_KIRPA=0x7f0a0021;
+        public static final int Hanuman_Chalisa1=0x7f0a0022;
+        public static final int Hanuman_Chalisa2=0x7f0a0023;
+        public static final int Hanuman_Chalisa3=0x7f0a0024;
         public static final int PANCHMUKHI=0x7f0a0017;
+        public static final int RAM_BHAJAN=0x7f0a001f;
+        public static final int RAM_DUAT=0x7f0a001e;
+        public static final int RAM_KAAJ=0x7f0a001c;
         public static final int RAM_KIRPA=0x7f0a001a;
         public static final int RAM_MILAN=0x7f0a0019;
+        public static final int RAM_PATH=0x7f0a0020;
+        public static final int RAM_SADHANA=0x7f0a001b;
         public static final int RAM_SIMRAN=0x7f0a0018;
+        public static final int SANJIVANI_BUTTI=0x7f0a001d;
         public static final int Title=0x7f0a0015;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
@@ -2218,7 +2229,6 @@ containing a value of this type.
         public static final int abc_toolbar_collapse_description=0x7f0a0004;
         public static final int action_settings=0x7f0a0014;
         public static final int app_name=0x7f0a0012;
-        public static final int banner_ad_unit_id=0x7f0a001e;
         public static final int hello_world=0x7f0a0013;
         /**  Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in

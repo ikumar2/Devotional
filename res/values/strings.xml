@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" translatable="false">Tring_HANUMAN_CHALISA</string>
+    <string name="app_name" translatable="false">HANUMAN CHALISA</string>
     <string name="hello_world" translatable="false">Hello world!</string>
     <string name="action_settings" translatable="false">Settings</string>
     <string name="Title" translatable="false">HANUMAN BAJRANGBALI</string>
@@ -11,8 +11,15 @@
     <string name="RAM_SIMRAN" translatable="false">RAM SIMRAN</string>
     <string name="RAM_MILAN" translatable="false">RAM MILAN</string>
     <string name="RAM_KIRPA" translatable="false">RAM KIRPA</string>
-    <string name="Hanuman_Chalisa1" translatable="false">Hanuman CHALISA 1</string>
-    <string name="Hanuman_Chalisa2" translatable="false">Hanuman CHALISA 2</string>
-    <string name="Hanuman_Chalisa3" translatable="false">Hanuman CHALISA 3</string>
-	<string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="RAM_SADHANA" translatable="false">RAM SADHANA</string>
+    <string name="RAM_KAAJ" translatable="false">RAM KAAJ</string>
+    <string name="SANJIVANI_BUTTI" translatable="false">SANJEEVANI BUTI</string>
+    <string name="RAM_DUAT" translatable="false">RAM DARBAR</string>
+    <string name="RAM_BHAJAN" translatable="false">RAM BHAJAN</string>
+    <string name="RAM_PATH" translatable="false">RAM PATH</string>
+    <string name="BAJRANGI_KIRPA" translatable="false">BAJRANGI KIRPA</string>
+    <string name="Hanuman_Chalisa1" translatable="false">HANUMAN CHALISA 1</string>
+    <string name="Hanuman_Chalisa2" translatable="false">HANUMAN CHALISA 2</string>
+    <string name="Hanuman_Chalisa3" translatable="false">HANUMAN CHALISA 3</string>
+	<!--   <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string> -->
 </resources>

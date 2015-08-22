@@ -28,12 +28,14 @@ import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
+import android.os.Process;
 import android.os.RemoteException;
 import android.support.v7.app.NotificationCompat;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.GestureDetector;
+// import android.view.GestureDetector.OnDoubleTapListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
@@ -63,10 +65,12 @@ public class MainActivity extends Activity implements OnClickListener {
 	private MediaPlayer player = null;
     private ImageButton	btplay;
     static private int x=0;
+    static private int y=0;
+    static private int z=1;
     // Media Button initialization - IA
     
-   // private Button playbutton;
-   // private Button pausebutton;
+    private Button playbutton;
+ //   private Button pausebutton;
     private Button play1button;
     private Button pause1button;
     private Button replay1button;
@@ -99,6 +103,14 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
+	
+/*	int id = android.os.Process.myPid();
+			System.out.println("PID" +android.os.Process.myPid());
+		if(id!=0)
+		{
+			initNotification();
+		}*/
+	
 		// Audio Code	- IA
 		
 		// MediaPlayer player;
@@ -128,14 +140,13 @@ public class MainActivity extends Activity implements OnClickListener {
 		e.printStackTrace();
 		
 		}
+		
+		
 	
+		// Handle phone call and sync audio and rotation of images
+		
 		TelephonyManager tm = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-		 mPhoneListener = new PhoneStateListener() {
-		// tm.listen(mPhoneListener, PhoneStateListener.LISTEN_CALL_STATE);
-	//	System.out.println("Intial phone" +mPhoneListener);
-		// somewhere else
-		// mPhoneListener = new PhoneStateListener() {
-				
+		mPhoneListener = new PhoneStateListener() {		
 			 @Override
 		    public void onCallStateChanged(int state, String incomingNumber) {
 					System.out.println("Intial phone" +state + " " +incomingNumber);
@@ -143,22 +154,31 @@ public class MainActivity extends Activity implements OnClickListener {
 		            switch (state) {
 		            case TelephonyManager.CALL_STATE_RINGING:
 		            	System.out.println("Ringing" +state);
+		            	if(mViewFlipper.isFlipping()){
 		            	mViewFlipper.stopFlipping();
+		            	// pausebutton.setVisibility(Button.GONE);
+						playbutton.setVisibility(Button.VISIBLE);}
 		            	if (player.isPlaying()){
 		            	 player.pause();
 						 pause1button.setVisibility(Button.GONE);
 						 play1button.setVisibility(Button.VISIBLE);
+						 System.out.println("Phone pause");
 		            	}
 		                break;
 
 		            case TelephonyManager.CALL_STATE_OFFHOOK:
 		            	System.out.println("CALL_STATE_OFFHOOK" +state);
 		                // do something...
+		            	if(mViewFlipper.isFlipping()){
 		            	mViewFlipper.stopFlipping();
+		            	// pausebutton.setVisibility(Button.GONE);
+						playbutton.setVisibility(Button.VISIBLE);
+		            	}
 		            	if (player.isPlaying()){
 		            	player.pause();
 						 pause1button.setVisibility(Button.GONE);
 						 play1button.setVisibility(Button.VISIBLE);
+						 System.out.println("Phone1 pause");
 		            	}
 					/*	 Intent startMain = new Intent(Intent.ACTION_MAIN);
 		                    startMain.addCategory(Intent.CATEGORY_HOME);
@@ -168,11 +188,18 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		            case TelephonyManager.CALL_STATE_IDLE:
 		            	System.out.println("CALL_STATE_IDLE" +state);
-		            	mViewFlipper.startFlipping();
-		                if (x!=0){
+		            	
+		            	if (z!=0){
+		            	mViewFlipper.startFlipping();}
+		            //	pausebutton.setVisibility(Button.VISIBLE);
+					//	playbutton.setVisibility(Button.GONE);
+		            	
+		                if (x!=0 && y!=0) {
 		                	player.start();
 		            	play1button.setVisibility(Button.GONE); 
 						pause1button.setVisibility(Button.VISIBLE);  
+						 System.out.println("Phone2 pause");
+						 // y=0;
 		                }
 		            	break;
 		            default:
@@ -189,7 +216,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		
 		play1button = (Button)findViewById(R.id.play1);
-		//play1button.setVisibility(Button.GONE);
+	    play1button.setVisibility(Button.VISIBLE);
 		pause1button = (Button)findViewById(R.id.pause1);
 		pause1button.setVisibility(Button.GONE);
 		System.out.println("On first time pause gone");
@@ -197,11 +224,13 @@ public class MainActivity extends Activity implements OnClickListener {
 				@Override
 				public void onClick(View view) {
 					// Cancel Notification
-					cancelNotification();
+					 cancelNotification();
 					player.pause();
 					pause1button.setVisibility(Button.GONE);
 					play1button.setVisibility(Button.VISIBLE);
-					System.out.println("On second time pause gone");
+					y=0;
+					System.out.println("On second time pause gone" +y);
+					
 					// player.release();
 				}	
 				});
@@ -211,12 +240,13 @@ public class MainActivity extends Activity implements OnClickListener {
 				@Override
 				public void onClick(View view) {
 					// Initialize Notification
-					initNotification();
+			    	initNotification();
 					player.start();
 					play1button.setVisibility(Button.GONE);
 					pause1button.setVisibility(Button.VISIBLE);
-					System.out.println("paly");
 					x=1;
+					y=1;
+					System.out.println("paly" +x  +" " +y);
 				}
 				
 				});
@@ -258,12 +288,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	    	            	public void onCompletion(MediaPlayer player) {
 	    	            		if (!player.isLooping()){
 	    	            			System.out.println("player looping status" + !player.isLooping());
-	    	            			 if (player != null) {
-	    		    	                    player.release();
-	    		    	                    player = null;
-	    		    	                }
 	    	            			 pause1button.setVisibility(Button.GONE);
 	    	    					 play1button.setVisibility(Button.VISIBLE);
+	    	    					 y=0;
 	    	    					 System.out.println("On third time pause gone");
 	    	            		}
 	    	            		}
@@ -282,17 +309,22 @@ public class MainActivity extends Activity implements OnClickListener {
 			@Override
 			public boolean onTouch(final View view, final MotionEvent event) {
 				detector.onTouchEvent(event);
-
-				if (rotate){
+				System.out.println(event +"screen touch for flipping");
+				if (mViewFlipper.isFlipping()){
 					mViewFlipper.stopFlipping();
-					rotate=!rotate;
+				//	pausebutton.setVisibility(Button.GONE);
+					playbutton.setVisibility(Button.VISIBLE);
+					System.out.println(mViewFlipper.isFlipping() +"stop flipping");
+					z=0;
 				}
-				else {
+			/*	else {
 					//mViewFlipper.setAutoStart(true);
 					//mViewFlipper.setFlipInterval(2000);
 					mViewFlipper.startFlipping();
-					rotate=!rotate;
-				}
+					playbutton.setVisibility(Button.GONE);
+					pausebutton.setVisibility(Button.VISIBLE);
+					System.out.println(mViewFlipper.isFlipping() +"start flipping");
+				}*/
 			/*	if(event.getAction()==0){
 				rotate=!rotate;
 				}*/
@@ -307,33 +339,38 @@ public class MainActivity extends Activity implements OnClickListener {
 		// Old code for handling images start and stop via button - IA
 		
 	  mViewFlipper.setAutoStart(true);
-    // playbutton = (Button)  findViewById(R.id.play);
-     // playbutton.setVisibility(Button.GONE);
+	//  initNotification();
+    playbutton = (Button)  findViewById(R.id.play);
+     playbutton.setVisibility(Button.GONE);
     
-	/*		 playbutton.setOnClickListener(new OnClickListener() {
+			 playbutton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				//sets auto flipping
+				if(!mViewFlipper.isFlipping()){
 				mViewFlipper.setAutoStart(true);
 				mViewFlipper.setFlipInterval(2000);
 				mViewFlipper.startFlipping();
 				playbutton.setVisibility(Button.GONE);
-				pausebutton.setVisibility(Button.VISIBLE);
-			}
-		});*/
+			//	pausebutton.setVisibility(Button.VISIBLE);
+				z=1;
+			}}
+		});
 
-	//pausebutton= (Button)findViewById(R.id.stop);
-	//pausebutton.setVisibility(Button.GONE);
-	/*pausebutton.setOnClickListener(new OnClickListener() {
+/*	pausebutton= (Button)findViewById(R.id.pause);*/
+//	pausebutton.setVisibility(Button.GONE);
+/*    pausebutton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				//stop auto flipping 
+				if(mViewFlipper.isFlipping()){
 				mViewFlipper.stopFlipping();
 				pausebutton.setVisibility(Button.GONE);
 				playbutton.setVisibility(Button.VISIBLE);
-			}
-		});
-		*/
+				z=0;
+			}}
+		});*/
+		
 	
 		//animation listener
 		mAnimationListener = new Animation.AnimationListener() {
@@ -386,13 +423,15 @@ public class MainActivity extends Activity implements OnClickListener {
 		        mAdView.loadAd(request);		
 		        */
 				//LinearLayout layout = (LinearLayout) findViewById(R.id.adView);
-				AdView layout = (AdView) findViewById(R.id.adView);
+			
+				//Commented Add for lunching
+				/*	AdView layout = (AdView) findViewById(R.id.adView);
 				AdView adView = new AdView(this, AdSize.BANNER, "a14ff402be4457c");
 			    layout.addView(adView);
 		 
 			    AdRequest adRequest = new AdRequest();
 			    adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
-				adView.loadAd(adRequest);
+				adView.loadAd(adRequest);*/
 				
 		
 	}
@@ -475,12 +514,12 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	    long when = System.currentTimeMillis();
 	    NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-	    builder.setContentTitle("Hanuman Chalisa App");
-	    builder.setContentText("Hanuman Chalisa is Playing...");
+	    builder.setContentTitle("Tring Hanuman Chalisa");
+	    builder.setContentText("Active....");
 	    builder.setSmallIcon(R.drawable.tring_devotion_hanuman);
 	    builder.setTicker("Media  Playing...");
 	    builder.setContentIntent(penInt);
-	    NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+	    NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
 	    notificationManager.notify(notificationId, builder.build());
 
 	}
@@ -488,7 +527,15 @@ public class MainActivity extends Activity implements OnClickListener {
 	private void cancelNotification() {
 	    NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 	    notificationManager.cancel(notificationId);
+	   // notificationManager.cancelAll();
 	}
 
+
+/*	
+public void onDestroy()
+{
+	Process.killProcess(android.os.Process.myPid());
+	cancelNotification();
+	System.out.println("Destroy App");
+}*/
 }
-	
