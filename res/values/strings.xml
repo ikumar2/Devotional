@@ -21,5 +21,5 @@
     <string name="Hanuman_Chalisa1" translatable="false">HANUMAN CHALISA 1</string>
     <string name="Hanuman_Chalisa2" translatable="false">HANUMAN CHALISA 2</string>
     <string name="Hanuman_Chalisa3" translatable="false">HANUMAN CHALISA 3</string>
-	<!--   <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string> -->
+	<string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
 </resources>

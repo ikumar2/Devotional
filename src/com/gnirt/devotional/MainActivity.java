@@ -20,6 +20,7 @@ import android.support.v4.view.ViewPager;*/
 import java.io.IOException;
 
 import android.app.Activity;
+import android.app.Application;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -55,6 +56,7 @@ import com.google.ads.AdRequest;
 import com.google.ads.AdSize;
 import com.google.ads.AdView;
 
+
 public class MainActivity extends Activity implements OnClickListener {
 
 	private static final int SWIPE_MIN_DISTANCE = 120;
@@ -66,6 +68,7 @@ public class MainActivity extends Activity implements OnClickListener {
     private ImageButton	btplay;
     static private int x=0;
     static private int y=0;
+    static private int r=0;
     static private int z=1;
     // Media Button initialization - IA
     
@@ -141,7 +144,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		}
 		
-		
+
 	
 		// Handle phone call and sync audio and rotation of images
 		
@@ -157,12 +160,16 @@ public class MainActivity extends Activity implements OnClickListener {
 		            	if(mViewFlipper.isFlipping()){
 		            	mViewFlipper.stopFlipping();
 		            	// pausebutton.setVisibility(Button.GONE);
+		            	 System.out.println("RingingBefore " +r +" " +x  +" " +y);
 						playbutton.setVisibility(Button.VISIBLE);}
 		            	if (player.isPlaying()){
 		            	 player.pause();
 						 pause1button.setVisibility(Button.GONE);
 						 play1button.setVisibility(Button.VISIBLE);
 						 System.out.println("Phone pause");
+						 System.out.println("Ringing" +r);
+						 r=1;
+						 System.out.println("RingingEnd " +r +" " +x  +" " +y);
 		            	}
 		                break;
 
@@ -179,6 +186,8 @@ public class MainActivity extends Activity implements OnClickListener {
 						 pause1button.setVisibility(Button.GONE);
 						 play1button.setVisibility(Button.VISIBLE);
 						 System.out.println("Phone1 pause");
+						 System.out.println("OFFHOOK " +r +" " +x  +" " +y);
+						 r=1;
 		            	}
 					/*	 Intent startMain = new Intent(Intent.ACTION_MAIN);
 		                    startMain.addCategory(Intent.CATEGORY_HOME);
@@ -188,18 +197,25 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		            case TelephonyManager.CALL_STATE_IDLE:
 		            	System.out.println("CALL_STATE_IDLE" +state);
+		            	System.out.println("IDLEA " +r +" " +x  +" " +y);
+
 		            	
-		            	if (z!=0){
-		            	mViewFlipper.startFlipping();}
+		            //	if (z!=0){
+		            	mViewFlipper.startFlipping();
 		            //	pausebutton.setVisibility(Button.VISIBLE);
-					//	playbutton.setVisibility(Button.GONE);
-		            	
-		                if (x!=0 && y!=0) {
-		                	player.start();
+						playbutton.setVisibility(Button.GONE);
+						
+						//}
+						System.out.println("IDLE " +r +" " +x  +" " +y);
+		               // if (x!=0 && y!=0 && r!=0) {
+						if (y!=0 && r!=0) {
+		                player.start();
 		            	play1button.setVisibility(Button.GONE); 
 						pause1button.setVisibility(Button.VISIBLE);  
 						 System.out.println("Phone2 pause");
+						 System.out.println("IDLEB " +r +" " +x  +" " +y);
 						 // y=0;
+						 r=0;
 		                }
 		            	break;
 		            default:
@@ -239,14 +255,15 @@ public class MainActivity extends Activity implements OnClickListener {
 	            findViewById(R.id.play1).setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
-					// Initialize Notification
-			    	initNotification();
+					
 					player.start();
 					play1button.setVisibility(Button.GONE);
 					pause1button.setVisibility(Button.VISIBLE);
 					x=1;
 					y=1;
 					System.out.println("paly" +x  +" " +y);
+					// Initialize Notification
+			    	initNotification();
 				}
 				
 				});
@@ -425,13 +442,15 @@ public class MainActivity extends Activity implements OnClickListener {
 				//LinearLayout layout = (LinearLayout) findViewById(R.id.adView);
 			
 				//Commented Add for lunching
-				/*	AdView layout = (AdView) findViewById(R.id.adView);
+				AdView layout = (AdView) findViewById(R.id.adView);
 				AdView adView = new AdView(this, AdSize.BANNER, "a14ff402be4457c");
 			    layout.addView(adView);
 		 
-			    AdRequest adRequest = new AdRequest();
-			    adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
-				adView.loadAd(adRequest);*/
+			   // AdRequest adRequest = new AdRequest();
+			 //   adRequest.Builder().build();
+			   AdRequest adRequest = new AdRequest();
+			   adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
+			  
 				
 		
 	}
@@ -538,4 +557,21 @@ public void onDestroy()
 	cancelNotification();
 	System.out.println("Destroy App");
 }*/
-}
+	
+	
+	protected void onDestroy() {
+	    super.onDestroy();
+        	player.pause();
+			 pause1button.setVisibility(Button.VISIBLE);
+			 play1button.setVisibility(Button.GONE);
+			 System.out.println("on Destroy pause");
+	    //  player.reset();
+	  //  player.stop();
+	   // player.release();
+	      finish();
+	      cancelNotification();
+	      android.os.Process.killProcess(android.os.Process.myPid());
+	    }
+	    
+	}
+	
