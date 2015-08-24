@@ -35,7 +35,7 @@
             <TextView
                 android:id="@+id/textView1"
                 style="@style/ImageTitle"
-                android:text="@string/BAJRANGBALI" />
+                android:text="@string/BAJRANGI_KIRPA" />
 
 
             
@@ -229,7 +229,7 @@
 <!--  Hanuman Home Text -->
             <TextView
                 style="@style/ImageTitle"
-                android:text="@string/BAJRANGI_KIRPA" />
+                android:text="@string/BAJRANGBALI" />
         </RelativeLayout>
         
            <!--  Hanuman Chalisa -->
@@ -487,7 +487,6 @@
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id"
-        ads:testDevices="TEST_EMULATOR"
         ads:loadAdOnCreate="true"> 
    </com.google.ads.AdView>
 

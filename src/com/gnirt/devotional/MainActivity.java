@@ -442,16 +442,19 @@ public class MainActivity extends Activity implements OnClickListener {
 				//LinearLayout layout = (LinearLayout) findViewById(R.id.adView);
 			
 				//Commented Add for lunching
+				AdRequest adRequest = new AdRequest();
 				AdView layout = (AdView) findViewById(R.id.adView);
-				AdView adView = new AdView(this, AdSize.BANNER, "a14ff402be4457c");
+				AdView adView = new AdView(this, AdSize.BANNER, "ca-app-pub-3449342062729148/1068008713");
 			    layout.addView(adView);
-		 
+			    adView.loadAd(adRequest);
 			   // AdRequest adRequest = new AdRequest();
 			 //   adRequest.Builder().build();
-			   AdRequest adRequest = new AdRequest();
-			   adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
+			  // AdRequest adRequest = new AdRequest();
+			 //  adRequest.addTestDevice(AdRequest.TEST_EMULATOR);
 			  
-				
+				//Latest try of code:
+			   
+			  // AdRequest adRequest = new AdRequest.Builder().build();
 		
 	}
 
